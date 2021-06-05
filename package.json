@@ -1,0 +1,28 @@
+{
+  "name": "paystack-endpoint",
+  "version": "0.0.1",
+  "description": "This project contains api endpoint of paystack.com api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maytheu/paystack-endpoint.git"
+  },
+  "keywords": [
+    "paystack",
+    "payment",
+    "nodejs"
+  ],
+  "author": "maytheu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maytheu/paystack-endpoint/issues"
+  },
+  "homepage": "https://github.com/maytheu/paystack-endpoint#readme",
+  "dependencies": {
+    "axios": "0.21.1",
+    "dotenv": "10.0.0"
+  }
+}
