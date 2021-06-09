@@ -2,10 +2,9 @@
 
 let Paystack = require("./Paystack");
 
-let initialize = function (key, options) {
-  return new Paystack(key, options);
+let initialize = function (key) {
+  return new Paystack(key);
 };
-
 
 initialize.Paystack = Paystack;
 

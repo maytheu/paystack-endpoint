@@ -1,54 +1,16 @@
 "use strict";
+require('dotenv').config()
 
-const Axios = require("./axios");
+const identify = require("./api/identify");
+const payment = require("./api/payment");
 
-function Paystack(key, options) {
-  console.log(key);
-  options = options || {};
-  key = key || process.env.key;
-  let paystackKey = options.paystackKey || key;
-
-  if (!key) {
+function Paystack(key) {
+  if (!key ) {
     throw new Error("key is required");
   }
-  return {
-    identify: {
-      resolveAccNum: function (accountNumber, bankId) {
-        return Axios({
-          url: `bank/resolve?account_number=${accountNumber}&bank_code=${bankId}`,
-          method: "get",
-          key,
-        });
-      },
 
-      resolveCardBin: function (card) {
-        return Axios({ url: `decision/bin/${card}`, method: "get", key });
-      },
+  global.paystackKey = key;
 
-      validateCustomer: function (bvn, firstName, lastName, customer_code) {
-        return Axios({
-          url: `customer/${customer_code}/identification`,
-          method: "post",
-          body: {
-            country: "NG",
-            type: "bvn",
-            value: bvn,
-            first_name: firstName,
-            last_name: lastName,
-          },
-          key,
-        });
-      },
-
-      verifyBVNMatch: function (bvn, accountNumber, bankId) {
-        return Axios({
-          url: "bvn/match",
-          method: "post",
-          body: { bvn, account_number: accountNumber, bank_code: bankId },
-          key,
-        });
-      },
-    },
-  };
+  return { identify, payment };
 }
 module.exports = Paystack;

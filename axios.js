@@ -6,7 +6,7 @@ const Axios = (args) => {
     return axios
       .get(`${root}${args.url}`, {
         headers: {
-          Authorization: `Bearer ${args.key}`,
+          Authorization: `Bearer ${paystackKey}`,
         },
       })
       .then((resp) => resp.data)
@@ -16,7 +16,7 @@ const Axios = (args) => {
     return axios
       .post(`${root}${args.url}`,args.body, {
         headers: {
-          Authorization: `Bearer ${args.key}`,
+          Authorization: `Bearer ${paystackKey}`,
           "Content-Type": "application/json",
         },
       })
