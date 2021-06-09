@@ -1,3 +1,5 @@
+"use strict";
+
 const axios = require("axios"),
   root = "https://api.paystack.co/";
 

@@ -15,7 +15,7 @@ const runVerifyBVNMatch = (acc, bvn, bank, fn, ln, mn) => {
     .then((resp) => console.log(resp));
 };
 
-runVerifyBVNMatch({account_number:"0112186161", bvn:"22285305641", bank_code:"058",  last_name:'adetunji'});
+// runVerifyBVNMatch({account_number:"0112186161", bvn:"22285305641", bank_code:"058",  last_name:'adetunji'});
 
 const runResolveCardBin = (card) => {
   Paystack.identify.resolveCardBin(card).then((resp) => console.log(resp));
@@ -203,8 +203,35 @@ const runSplit = (
 //   bearer_type: "subaccount",
 // });
 
-const runListRefund=()=>{
-  Paystack.payment.listRefund().then(resp=>console.log(resp))
-}
+const runListRefund = () => {
+  Paystack.payment.listRefund().then((resp) => console.log(resp));
+};
 
 // runListRefund()
+
+const runCreateRecipient = (
+  name,
+  account_number,
+  bank_code,
+  currency,
+  type
+) => {
+  Paystack.transfer
+    .createRecipient(name, account_number, bank_code, currency, type)
+    .then((resp) => console.log(resp));
+};
+
+// runCreateRecipient({
+//   name: "Adetunji Mathew",
+//   account_number: "0820869681",
+//   bank_code: "044",
+//   type: "nuban",
+//   currency: "NGN",
+// });
+
+const runTransfer =( amount, recipient, source)=>{
+  Paystack.transfer.transfer(amount, recipient).then(resp=>console.log(resp))
+}
+
+// runTransfer({amount:'1000000', recipient:'RCP_iyijcqb179eu9w7', })
+
