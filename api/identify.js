@@ -28,7 +28,7 @@ const resolveCardBin = function ({ card }) {
   }
 };
 
-const validateCustomer = function ({ bvn, first_name, last_name, customer }) {
+const validateCustomer = function ({ bvn, first_name, last_name, customer, country }) {
   if (!bvn || !firstName || !lastName || !customer) {
     throw new Error(" Enter required field");
   }
@@ -37,7 +37,7 @@ const validateCustomer = function ({ bvn, first_name, last_name, customer }) {
       url: `customer/${customer}/identification`,
       method: "post",
       body: {
-        country: "NG",
+        country,
         type: "bvn",
         value: bvn,
         first_name,

@@ -235,3 +235,8 @@ const runTransfer =( amount, recipient, source)=>{
 
 // runTransfer({amount:'1000000', recipient:'RCP_iyijcqb179eu9w7', })
 
+// Paystack.transaction.total().then(resp=>console.log(resp))
+
+// Paystack.nuban.fetchBank().then(resp=>console.log(resp))
+
+Paystack.nuban.removeSplit('0112186161')//.then(resp=>console.log(resp))

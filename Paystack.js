@@ -1,16 +1,18 @@
 "use strict";
 
-const identify = require("./api/identify");
-const payment = require("./api/payment");
-const transfer=require('./api/transfer')
+const transaction = require("./api/transactions"),
+  split = require("./api/split"),
+  customer = require("./api/customer"),
+  nuban = require("./api/nuban"),
+  subaccount = require("./api/subaccount");
 
 function Paystack(key) {
-  if (!key ) {
+  if (!key) {
     throw new Error("key is required");
   }
 
   global.paystackKey = key;
 
-  return { identify, payment, transfer };
+  return { transaction, split, customer, nuban, subaccount };
 }
 module.exports = Paystack;
