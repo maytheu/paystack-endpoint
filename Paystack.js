@@ -16,7 +16,11 @@ const transaction = require("./api/transactions"),
   balance = require("./api/balance"),
   bulk = require("./api/bulk"),
   control = require("./api/control"),
-  charge = require("./api/charge");
+  charge = require("./api/charge"),
+  dispute = require("./api/disputes"),
+  refund = require("./api/refund"),
+  verify = require("./api/verify"),
+  misc = require("./api/misc");
 
 function Paystack(key) {
   if (!key) {
@@ -43,6 +47,10 @@ function Paystack(key) {
     bulk,
     control,
     charge,
+    dispute,
+    refund,
+    verify,
+    misc,
   };
 }
 module.exports = Paystack;

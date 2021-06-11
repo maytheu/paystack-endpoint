@@ -78,7 +78,6 @@ const archive = function (id) {
 module.exports = {
   create,
   list,
-  fetch,
   update,
   view,
   verify,
