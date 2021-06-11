@@ -45,7 +45,7 @@ const fetch = function (id) {
 
 const update = function (args, id) {
   if (!id) {
-    throw new Error("Split id is required");
+    throw new Error("Split id or code is required");
   }
   return Axios({
     url: `${root}/${id}`,
