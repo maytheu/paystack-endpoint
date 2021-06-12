@@ -20,7 +20,7 @@ const fetch = function (id) {
   if (!id) {
     throw new Error("Transaction id is required");
   }
-  if (typeof id === Number) {
+  if (typeof id === "number") {
     return Axios({ url: `${root}/${id}`, method: "get" });
   }
   throw new Error("Transaction ID must be number");
@@ -126,7 +126,7 @@ module.exports = {
   chargeAuth,
   checkAuth,
   view,
-  total,
-  exportTrans,
-  partialDebit,
+  //   total,
+  //   exportTrans,
+  //   partialDebit,
 };

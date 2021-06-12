@@ -4,7 +4,7 @@
   "description": "This project contains api endpoint of paystack.com api",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll --config=jestconfig.json",
     "start": "node app.js"
   },
   "repository": {
@@ -16,7 +16,7 @@
     "payment",
     "nodejs"
   ],
-  "author": "Mathew Adetunji",
+  "author": "Mathew Adetunji <maytheu98@gmail.com> (https://adetunjimathew.herokuapp.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maytheu/paystack-endpoint/issues"
@@ -26,6 +26,7 @@
     "axios": "0.21.1"
   },
   "devDependencies": {
-    "dotenv": "10.0.0"
+    "dotenv": "10.0.0",
+    "jest": "27.0.4"
   }
 }

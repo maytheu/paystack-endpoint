@@ -8,7 +8,7 @@ const list = function (args) {
   if (args) {
     param = query(args);
   }
-  return Axios({ url: args ? `bank?${param}` : root, method: "get" });
+  return Axios({ url: args ? `bank?${param}` : 'bank', method: "get" });
 };
 
 const listProviders = function () {
