@@ -126,7 +126,7 @@ module.exports = {
   chargeAuth,
   checkAuth,
   view,
-  //   total,
-  //   exportTrans,
-  //   partialDebit,
+  total,
+  exportTrans,
+  partialDebit,
 };

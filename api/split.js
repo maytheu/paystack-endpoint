@@ -23,12 +23,12 @@ const create = function (args) {
 };
 
 const list = function (args) {
-  if (!args.name || !args.active) {
-    throw new Error("Enter required field");
+  let param;
+  if (args) {
+    param = query(args);
   }
-  let param = query(args);
   return Axios({
-    url: `${root}?${param}`,
+    url: args ?`${root}?${param}`: root,
     method: "get",
   });
 };
@@ -58,11 +58,14 @@ const addSubaccount = function (subaccount, share, id) {
   if (!subaccount || !share || !id) {
     throw new Error("Enter required field");
   }
-  return Axios({
-    url: `${root}/${id}/subaccount/add`,
-    method: "post",
-    body: { share, subaccount },
-  });
+  if (typeof share === "number") {
+    return Axios({
+      url: `${root}/${id}/subaccount/add`,
+      method: "post",
+      body: { share, subaccount },
+    });
+  }
+  throw new Error("Share must be an integer");
 };
 
 const removeSubaccount = function (subaccount, id) {

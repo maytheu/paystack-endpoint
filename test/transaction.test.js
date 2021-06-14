@@ -84,7 +84,38 @@ describe("Transaction Api --> Manage payment", () => {
     });
   });
 
-  it("Total transaction --> total amount received", () => {});
+  it("Total transaction --> total amount received", () => {
+    Paystack.transaction.total().then((resp) => {
+      expect(resp.data).objectContaining({
+        total_transactions: expect.any(Number),
+        total_volume: expect.any(Number),
+        unique_customers: expect.any(Number),
+      });
+    });
+  });
 
-  it("", () => {});
+  it("Export transaction --> List transaction", () => {
+    Paystack.transaction.exportTrans().then((resp) => {
+      expect(resp.status).toEqual("true");
+      expect(resp.data).toHaveProperty("path");
+    });
+  });
+
+  it("Partial Debit --> Retrieve transaction from customer", () => {
+    Paystack.transaction
+      .partialDebit({
+        authorization_code: "AUTH_6033manalk",
+        amount: 5000,
+        email: "maytheu98@gmail.com",
+        currency: "NGN",
+      })
+      .then((resp) => {
+        expect(resp.data).toEqual(
+          objectContaining({
+            amount: expect.any(Number),
+            status: expect.any(String),
+          })
+        );
+      });
+  });
 });
