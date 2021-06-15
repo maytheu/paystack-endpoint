@@ -6,7 +6,7 @@ describe("Transaction Api --> Manage payment", () => {
     Paystack.transaction
       .initialize({
         amount: 500000,
-        email: "maytheuhaydey@gmail.com",
+        email: "maytheu98@gmail.com",
       })
       .then((resp) => {
         expect(resp.status).toBe(true);

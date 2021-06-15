@@ -5,7 +5,7 @@ const Axios = require("../axios"),
 const { query } = require("../query");
 
 const create = function (args) {
-  if (!args.customer || !args.amount || !args.description || !args.due_date) {
+  if (!args.customer || !args.amount || !args.due_date) {
     throw new Error("Enter required field");
   }
   return Axios({ url: root, body: args, method: "post" });
@@ -37,7 +37,7 @@ const notification = function (code) {
   if (!code) {
     throw new Error("Invoice code is required");
   }
-  return Axios({ url: `${root}/notify/${id}`, method: "post" });
+  return Axios({ url: `${root}/notify/${code}`, method: "post" });
 };
 
 const total = function () {

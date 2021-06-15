@@ -10,7 +10,6 @@ const create = function (args) {
     !args.price ||
     !args.description ||
     !args.currency ||
-    !args.limited ||
     !args.quantity
   ) {
     throw new Error("Enter required field");

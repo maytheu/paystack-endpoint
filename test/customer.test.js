@@ -2,7 +2,6 @@ require("dotenv").config();
 const Paystack = require("../main")(process.env.PAYSTACK_SECRET);
 
 describe("Customers --> create and manage customers", () => {
-  let customer;
   it("Create customer --> create new customer", () => {
     Paystack.customer
       .create({
@@ -12,7 +11,6 @@ describe("Customers --> create and manage customers", () => {
         phone: "+2347063032847",
       })
       .then((resp) => {
-        customer = resp.data.customer_code;
         expect(resp.data).toHaveProperty("email", "maytheu98@gmail.com");
         expect(resp.data).toHaveProperty("phone", "+2347063032847");
       })
@@ -21,7 +19,7 @@ describe("Customers --> create and manage customers", () => {
 
   it("Fetch --> get customer details", () => {
     Paystack.customer
-      .fetch("CUS_1hgsnqbn9audisx")
+      .fetch("CUS_1hgsnqbnxxxxxa")
       .then((resp) => {
         expect(resp.data).objectContaining({
           integration: expect.any(Number),
@@ -43,10 +41,10 @@ describe("Customers --> create and manage customers", () => {
 
   it("update --> update customer details", () => {
     Paystack.customer
-      .update({ first_name: "Adeola" }, "CUS_1hgsnqbn9audisx")
+      .update({ first_name: "Adeola" }, "CUS_1hgsnqbxxxxxx")
       .then((resp) => {
         expect(resp.data).toHaveProperty("first_name", "Adeola");
-        expect(resp.data).toHaveProperty("customer_code", customer);
+        expect(resp.data).toHaveProperty("customer_code");
       })
       .catch((err) => err);
   });
@@ -56,7 +54,7 @@ describe("Customers --> create and manage customers", () => {
       .validate(
         "NG",
         "22285305641",
-        "CUS_1hgsnqbn9audisx",
+        "CUS_1hgsnqxxxxxxx",
         "Adeola",
         "Adetunji"
       )
@@ -68,7 +66,7 @@ describe("Customers --> create and manage customers", () => {
 
   it("Whitelist/Blacklist --> Whitelist or blacklist a customer", () => {
     Paystack.customer
-      .blacklist({ customer: "CUS_1hgsnqbn9audisx", risk_action: "deny" })
+      .blacklist({ customer: "CUS_1hgsnqbnxxxxxxxx", risk_action: "deny" })
       .then((resp) => {
         expect(resp.data).toHaveProperty("risk_action", "deny");
       })
