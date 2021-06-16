@@ -35,7 +35,7 @@ Paystack.verify
 
 This example accept optional object params to transactiion.list() 
 ```
-Paystack.transaction.list().then((resp) => {
+Paystack.transaction.list({perPage:2}).then((resp) => {
   console.log(resp);
 });
 ```
@@ -92,7 +92,7 @@ Paystack
   - finalize - accept id
   - update - accept object and id
   - archive - accept id
-- transfer
+- [transfer](https://paystack.com/docs/api/#transfer)
   - initiate
   - finalize - accept transfer_code and otp
   - initiateBulk 
@@ -103,11 +103,11 @@ Paystack
   - disableOtp
   - disableOtpFinally - accept otp
   - enableOtp
-- verify
+- [verify](https://paystack.com/docs/api/#verification)
   - verifyBvn
   - resolveAccount - accept account_number and bank_code
   - resolveCardBin -accept card
-- charge
+- [charge](https://paystack.com/docs/api/#charge)
   - create
   - submitPin - accept pin and reference
   - submitOtp - accept otp and reference
@@ -195,5 +195,5 @@ npm test
 ```
 Add PAYSTACK_SECRET to .env file,  pass the required params to the function for all test to pass
 
-Tested with [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)

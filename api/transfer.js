@@ -29,7 +29,7 @@ const initiateBulk = function (args) {
   if (!args.source || !args.transfers) {
     throw new Error("Enter required field");
   }
-  if (typeof args.transfers !== "array") {
+  if (typeof args.transfers !== "object") {
     throw new Error("Transfer should be an array of object");
   }
   if (args.source === "balance") {
