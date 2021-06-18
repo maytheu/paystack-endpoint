@@ -51,7 +51,14 @@ const addProduct = function (product, id) {
   if (!id || !product) {
     throw new Error("Enter required field");
   }
-  return Axios({ url: `${root}/${id}/product`, method: "post", body: product });
+  if (typeof product === "object") {
+    return Axios({
+      url: `${root}/${id}/product`,
+      method: "post",
+      body: product,
+    });
+  }
+  throw new Error("Product must be an array");
 };
 
 module.exports = { create, list, fetch, update, check, addProduct };

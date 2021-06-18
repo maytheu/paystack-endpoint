@@ -5,7 +5,7 @@ const Axios = require("../axios"),
 const { query } = require("../query");
 
 const initiate = function (arr) {
-  if (typeof arr === "array") {
+  if (typeof arr === "object") {
     return Axios({ url: root, method: "post", body: arr });
   }
   throw new Error("must contain an empty array");

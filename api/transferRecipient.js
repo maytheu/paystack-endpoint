@@ -21,7 +21,7 @@ const create = function (args) {
 };
 
 const bulkCreate = function (batch) {
-  if (typeof batch !== "array") {
+  if (typeof batch !== "object") {
     throw new Error("Batch should be an array of object");
   }
   return Axios({ url: `${root}/bulk`, method: "post", body: args });

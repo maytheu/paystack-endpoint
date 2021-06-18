@@ -4,11 +4,11 @@ const Paystack = require("../main")(process.env.PAYSTACK_SECRET);
 describe("Plan Api --> create and manage payment", () => {
   it("Create --> create plan", () => {
     Paystack.plan
-      .create({ name: "test1", amount: 10000, interval: "weekly" })
+      .create({ name: "test2", amount: 10000, interval: "weekly" })
       .then((resp) => {
         expect(resp.body).toEqual(
           expect.objectContaining({
-            name: "test1",
+            name: "test2",
             interval: "weekly",
           })
         );

@@ -25,7 +25,7 @@ const list = function (args) {
   if (args) {
     param = query(args);
   }
-  return Axios({ url: args ? `${root}?${param}` : root, method: get });
+  return Axios({ url: args ? `${root}?${param}` : root, method: 'get' });
 };
 
 const fetch = function (id) {

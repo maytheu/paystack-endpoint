@@ -1,5 +1,8 @@
 # Paystack-endpoint
 
+[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/paystack-endpoint)
+
+
 This node module is a reference to the [paystack api docs](https://paystack.com/docs/api/#)
 
 ## Installation
@@ -115,42 +118,42 @@ Paystack
   - submitBirthday - accept birthday and reference
   - submitAddress - accept address, city, state, zipcode and reference
   - check - accep reference
-- subsription
+- [subsription](https://paystack.com/docs/api/#subscription)
   - create
   - list
   - fetch - accept id
   - enable - accept code and token
   - disable - accept code and token
-- split
+- [split](https://paystack.com/docs/api/#split)
   - create
   - list
   - fetch - accept id
   - update - accept object and id
   - addSubaccount - accept subaccount, share and id
   - removeSubaccount - accept subaccount and id
-- subaccount
+- [subaccount](https://paystack.com/docs/api/#subaccount)
   - create
   - list
   - fetch - accept id
   - update - accept object and id
-- page
+- [page](https://paystack.com/docs/api/#page)
   - create
   - list
   - fetch - accept id
   - update - accept object and id
   - check - accept url
   - addProduct - accept product and id
-- bulk
+- [bulk](https://paystack.com/docs/api/#bulk-charge)
   - initiate - accept array
   - list
   - fetch - accept id
   - fetchCharges - accept object and id
   - pause - accept code
   - resume - accept code
-- control
+- [control](https://paystack.com/docs/api/#control-panel)
   - fetch
   - update -accept timeout
-- dispute
+- [dispute](https://paystack.com/docs/api/#dispute)
   - list
   - fetch - accept id
   - listTransaction - accept id
@@ -159,10 +162,10 @@ Paystack
   - upload - accept id and file.ext
   - resolve - accept object and id
   - exportDispute 
-- balance
+- [balance](https://paystack.com/docs/api/#transfer-control)
   - check
   - fetch
-- nuban
+- [nuban](https://paystack.com/docs/api/#dedicated-nuban)
   - create
   - list
   - fetch - accept id
@@ -170,18 +173,18 @@ Paystack
   - split
   - removeSplit - accept account_number
   - fetchBank
-- refund 
+- [refund](https://paystack.com/docs/api/#refund) 
   - create
   - list
   - fetch - accept reference
-- transferRecipient
+- [transferRecipient](https://paystack.com/docs/api/#transfer-recipient)
   - create
   - bulkCreate - accept batch
   - list
   - fetch - accept id
   - update - accept object and id
   - deleteRecipient - accept id
-- misc
+- [misc](https://paystack.com/docs/api/#miscellaneous)
   - list
   - listProviders
   - listCountries
